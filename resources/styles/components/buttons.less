@@ -1,0 +1,36 @@
+@tenfoot-button-padding-h: 8*@unit;
+
+#base-button() {
+	.focusable-transitions;
+	.focus-ring;
+	background-color: @color-button-bg;
+	color: @color-fg;
+	border: 0;
+	box-shadow: unset;
+	padding: @tenfoot-button-padding-h @gutter;
+	&:focus,
+	&:active,
+	&:hover {
+		background-color: @color-button-active-bg;
+	}
+	&:disabled {
+		opacity: 0.5;
+	}
+}
+
+button.tenfoot-menu-item,
+button.tenfoot-button {
+	#base-button();
+}
+button.tenfoot-button {
+	border-radius: @full-radius;
+	margin-bottom: @gutter;
+	padding: @tenfoot-button-padding-h (2*@gutter);
+}
+button.tenfoot-menu-item {
+	&:focus {
+		// No outline for the menu items
+		outline: 0;
+		box-shadow: inset @gutter/2 0 @color-focus;
+	}
+}

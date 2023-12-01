@@ -1,0 +1,1 @@
+option('gdk_pixbuf_module_file', type : 'string', description : 'GDK Pixbuf module file path to build in the executable.')

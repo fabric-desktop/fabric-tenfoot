@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/Fabric/Tenfoot">
+		<file>styles.css</file>
+		<file>dropdown-icon.svg</file>
+		<file>gamepads/generic/north.svg</file>
+		<file>gamepads/generic/south.svg</file>
+		<file>gamepads/generic/east.svg</file>
+		<file>gamepads/generic/west.svg</file>
+		<file>gamepads/nintendo/home.svg</file>
+		<file>gamepads/playstation/cross.svg</file>
+		<file>gamepads/playstation/circle.svg</file>
+		<file>gamepads/playstation/square.svg</file>
+		<file>gamepads/playstation/triangle.svg</file>
+		<file>OSK/key-caps.svg</file>
+		<file>OSK/key-shift.svg</file>
+		<file>OSK/key-tab.svg</file>
+		<file>OSK/key-backspace.svg</file>
+		<file>OSK/key-enter.svg</file>
+		<file>OSK/key-left.svg</file>
+		<file>OSK/key-right.svg</file>
+	</gresource>
+</gresources>

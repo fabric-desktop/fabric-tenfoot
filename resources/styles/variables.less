@@ -1,0 +1,21 @@
+// Units and sizes
+// ---------------
+
+@pixel-equivalent-font-size: 16;
+@unit: 1rem/@pixel-equivalent-font-size;
+@relative-unit: 1em/@pixel-equivalent-font-size;
+@gutter: 10*@unit;
+// Use this value for "always fully round" border radius.
+// Using 100% would make an ellipse instead.
+@full-radius: 100rem;
+
+// Colors
+// ------
+
+@color-fg: #ffffff;
+@color-bg: #000000;
+@color-focus: #00B1FF;
+@color-overshoot: @color-focus;
+@color-button-fg: @color-fg;
+@color-button-bg: fade(lighten(@color-bg, 40%), 50%);
+@color-button-active-bg: fade(lighten(@color-bg, 78%), 50%);

@@ -1,0 +1,110 @@
+/* The bottom bar is omnipresent, and holds prompt info */
+.bottom-bar {
+	border-top: @unit solid transparent;
+	padding: @gutter (2*@gutter);
+	padding-top: (@gutter+@unit);
+	animation-name: background-cycle, border-cycle;
+	animation-duration: 30s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-direction: alternate;
+}
+.bottom-bar > .left {
+	margin-right: @gutter;
+}
+.bottom-bar > .right {
+	margin-left: @gutter;
+}
+.bottom-bar > .left > *:not(:last-child) {
+	margin-right: (4*@unit);
+}
+.bottom-bar > .right > *:not(:first-child) {
+	margin-left: (4*@unit);
+}
+
+.button-prompt {
+	all: unset;
+	margin: -(4*@unit);
+	padding: (4*@unit);
+	border-radius: (4*@unit);
+}
+.button-prompt:disabled {
+	opacity: 0.5;
+}
+.button-prompt:active,
+.button-prompt:focus,
+.button-prompt:hover {
+	background-color: rgba(30, 160, 255, 0.3);
+}
+.button-prompt .name {
+	text-transform: uppercase;
+}
+.button-prompt .button {
+	padding: 0;
+	background-color: #fff;
+	color: #000;
+	margin-right: (4*@unit);
+	padding-top: @unit;
+	padding-left: @unit;
+	font-size: 0.8em;
+	font-weight: bold;
+	min-width:  1.5em;
+	min-height: 1.5em;
+	text-transform: uppercase;
+	border-radius: @full-radius;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	label {
+		padding-left: 6*@unit;
+		padding-right: 6*@unit;
+		text-transform: uppercase;
+	}
+
+	.-type-keyboard & {
+		background-color: #eee;
+		border-radius: (2*@unit);
+		label {
+			padding-left: 2*@unit;
+			padding-right: 2*@unit;
+		}
+	}
+}
+.-type-xbox .button-prompt.-button-primary .button {
+	background-color: rgb(0, 180, 0);
+}
+.-type-xbox .button-prompt.-button-back .button {
+	background-color: rgb(200, 0, 0);
+}
+.-type-xbox .button-prompt.-button-secondary .button {
+	background-color: rgb(40, 100, 200);
+}
+.-type-xbox .button-prompt.-button-tertiary .button {
+	background-color: rgb(210, 210, 0);
+}
+
+.__gamepad_button(@controller, @name, @image) {
+	.-type-@{controller} .button-prompt.-button-@{name} .button {
+		border-radius: 0;
+		background-color: transparent;
+		background-image: url("resource:///Fabric/Tenfoot/gamepads/@{image}.svg");
+		label { font-size: 0; }
+	}
+}
+.__playstation_button(@name, @image) {
+	.__gamepad_button(playstation, @name, @image)
+}
+.__playstation_button(primary,   "playstation/cross");
+.__playstation_button(back,      "playstation/circle");
+.__playstation_button(secondary, "playstation/square");
+.__playstation_button(tertiary,  "playstation/triangle");
+
+.__nintendo_button(@name, @image) {
+	.__gamepad_button(nintendo, @name, @image)
+}
+.__nintendo_button(primary,   "generic/east");
+.__nintendo_button(back,      "generic/south");
+.__nintendo_button(secondary, "generic/north");
+.__nintendo_button(tertiary,  "generic/west");
+.__nintendo_button(menu,  "nintendo/home");

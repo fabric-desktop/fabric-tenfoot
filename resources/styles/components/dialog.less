@@ -1,0 +1,29 @@
+.dialog-box {
+	.modal-common();
+	& > .title {
+		border-radius:
+			(4*@unit)
+			(4*@unit)
+			0
+			0
+		;
+		background: fade(@color-focus, 40%);
+		padding: @gutter/2 @gutter;
+	}
+	& > .body {
+		padding: @gutter;
+	}
+	& > .buttons {
+		padding: @gutter;
+		padding-top: 0;
+		& > *:not(:last-child) {
+			margin-right: @gutter;
+		}
+	}
+}
+
+.dialog-button {
+	#base-button();
+	padding: @gutter/2 @gutter;
+	border-radius: 4*@unit;
+}

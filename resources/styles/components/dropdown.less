@@ -1,0 +1,61 @@
+tenfoot-dropdown {
+	.focusable-transitions;
+	.focus-ring;
+	#base-button();
+	padding: 0;
+	margin: 0;
+	border-radius: 4*@unit;
+	border: 2*@unit solid fade(@color-fg, 60%);
+
+	&:focus {
+		background-color: @color-button-bg;
+	}
+	&:active,
+	&:hover {
+		background-color: @color-button-active-bg;
+	}
+
+	.dropdown-text,
+	button {
+		margin: 0;
+	}
+	.dropdown-text {
+		border-radius:
+			(4*@unit)
+			0
+			0
+			(4*@unit)
+		;
+		padding: @gutter/2;
+		padding-right: @gutter;
+	}
+	button {
+		background-image: url("resource:///Fabric/Tenfoot/dropdown-icon.svg");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		border-radius:
+			0
+			(2*@unit)
+			(2*@unit)
+			0
+		;
+		padding: @gutter/2 @gutter;
+	}
+}
+
+tenfoot-dropdowndialog {
+	.modal-common();
+	border-radius: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: @gutter/2;
+	padding-top:    0;
+	padding-bottom: 0;
+	button:first-child {
+		margin-top: @gutter/2;
+	}
+	button:last-child {
+		margin-bottom: @gutter/2;
+	}
+}

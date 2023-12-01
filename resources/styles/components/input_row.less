@@ -1,0 +1,16 @@
+.tenfoot-input-row {
+	margin:        0   -@gutter;
+	padding: @gutter/2  @gutter;
+	margin-bottom: @gutter;
+	border-radius: @gutter/2;
+	.focusable-within-transitions();
+	&:active,
+	&:hover,
+	&:focus-within {
+		background: @color-button-active-bg;
+	}
+
+	& > button {
+		margin-bottom: 0;
+	}
+}

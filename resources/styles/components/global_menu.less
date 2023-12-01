@@ -1,0 +1,24 @@
+.global-menu {
+	background: rgba(0, 0, 0, 0);
+	transition:
+		background 0.15s ease-in
+	;
+}
+.global-menu.-is-shown {
+	background: rgba(50, 50, 50, 0.6);
+}
+.global-menu .well {
+	background: rgba(0, 0, 20, 0.75);
+	box-shadow: 0 0 (2*@gutter) (2*@gutter)  rgba(0, 0, 20, 0.75);
+	transition:
+		opacity 0.15s ease-in
+	;
+	opacity: 0;
+}
+.global-menu.-is-shown .well {
+	opacity: 1;
+}
+.global-menu .tenfoot-menu-item {
+	padding-left: 2*@gutter;
+	padding-right: 10*@gutter;
+}

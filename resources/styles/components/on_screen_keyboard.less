@@ -1,0 +1,65 @@
+.__tenfoot-osk_icon(@name) {
+	&.-key-@{name} {
+		font-size: 0;
+		background-image: url("resource:///Fabric/Tenfoot/OSK/key-@{name}.svg");
+	}
+}
+tenfoot-osk {
+	background: fade(@color-bg, 15%);
+	padding: @gutter/2;
+}
+
+tenfoot-osk-container {
+	.-nothing {
+		font-size: 0;
+	}
+}
+tenfoot-oskbutton {
+	background-color: @color-button-bg;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	&:hover, &:active, &:focus, &.-is-pressed {
+		background-color: @color-button-active-bg;
+	}
+
+	min-height: 2em;
+
+	&, & > label {
+		padding: 0;
+		line-height: 1;
+	}
+
+	margin: 2*@unit;
+	border-radius: 4*@unit;
+	font-size: 0.8rem;
+
+	&.-key-_empty_ {
+		opacity: 0;
+	}
+
+	&.-key-tab {
+		opacity: 0;
+	}
+
+	.__tenfoot-osk_icon(enter);
+	.__tenfoot-osk_icon(shift);
+	.__tenfoot-osk_icon(caps);
+	.__tenfoot-osk_icon(left);
+	.__tenfoot-osk_icon(right);
+	.__tenfoot-osk_icon(backspace);
+	.__tenfoot-osk_icon(tab);
+}
+
+.-with-gamepad {
+	tenfoot-oskbutton {
+		&.-is-focused {
+			background-color: @color-button-active-bg;
+		}
+		.__focusable-transitions_rules();
+		&.-is-focused {
+			.__focus-ring_rules();
+			.__focusable-transitions_active_rules();
+		}
+	}
+}

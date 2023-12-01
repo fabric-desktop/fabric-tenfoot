@@ -1,0 +1,59 @@
+.__focusable-transitions_rules() {
+	transition:
+		background 0.3s ease-out
+		, box-shadow 0.3s ease-out
+		//, outline 0.3s ease-out
+		//, outline-offset 0.3s ease-out
+	;
+}
+.__focusable-transitions_active_rules() {
+	/* Make background transition instant on focus */
+	transition:
+		background 0s ease-out
+		, box-shadow 0.3s ease-out
+		//, outline 0.3s ease-out
+		//, outline-offset 0.0s ease-out
+	;
+}
+.__focus-ring_rules() {
+		outline: (2*@unit) solid @color-focus;
+		outline-offset: (2*@unit);
+}
+
+.focus-ring() {
+	outline: 0;
+	outline-offset: 0;
+	&:focus {
+		.__focus-ring_rules();
+	}
+}
+.focus-within-ring() {
+	.focus-ring();
+	&:focus-within {
+		.__focus-ring_rules();
+	}
+}
+
+.focusable-transitions() {
+	.__focusable-transitions_rules();
+	&:focus,
+	&:active,
+	&:hover {
+		.__focusable-transitions_active_rules();
+	}
+}
+
+.focusable-within-transitions() {
+	.__focusable-transitions_rules();
+	&:focus-within,
+	&:active,
+	&:hover {
+		.__focusable-transitions_active_rules();
+	}
+}
+
+.modal-common() {
+	background: fade(@color-bg, 90%);
+	border-radius: (4*@unit);
+	margin: 4*@gutter;
+}

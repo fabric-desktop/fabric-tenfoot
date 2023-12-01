@@ -1,0 +1,99 @@
+/* Resetting stuff... */
+* {
+	/* all: unset; */
+	box-shadow: unset;
+	padding: 0;
+	margin: 0;
+}
+
+/* The window is the root element of the page (HTML's body equivalent) */
+window {
+	background: @color-bg linear-gradient(-45deg
+		, rgba(  0, 255,   0, 0.08)   0%
+		, rgba(  0, 255, 255, 0.08)  25%
+		, rgba( 50,  50, 255, 0.08)  50%
+		, rgba(255,   0, 255, 0.08)  75%
+		, rgba(255,   0,   0, 0.08) 100%
+	);
+	color: @color-fg;
+	background-size: 400% 100%;
+	animation-name: main-gradient;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-direction: alternate;
+}
+
+button {
+	.focusable-transitions;
+	.focus-ring;
+	border: unset;
+	background: unset;
+	/* We force use of our custom button instead. */
+	border-radius: 0;
+}
+button > label {
+	padding: 0;
+	margin: 0;
+}
+
+entry {
+	.focusable-within-transitions;
+	.focus-within-ring;
+	caret-color: @color-fg;
+	color: @color-fg;
+	background: fade(@color-fg, 10%);
+	border: 2*@unit solid fade(@color-fg, 60%);
+	padding: @gutter/2 @gutter;
+	border-radius: @gutter/2;
+	&:active,
+	&:hover,
+	&:focus-within {
+		background: fade(@color-bg, 10%);
+	}
+}
+
+switch {
+	.focusable-transitions;
+	.focus-ring;
+}
+
+separator {
+	margin-bottom: @gutter;
+	background-color: fade(@color-fg, 50%);
+	min-height: 1*@unit;
+}
+
+/* The scrolling effect */
+overshoot {
+	background: unset;
+}
+overshoot.top {
+	background-image: linear-gradient(0deg
+		, fade(@color-overshoot,  0%)  85%
+		, fade(@color-overshoot, 60%) 100%
+	);
+}
+overshoot.bottom {
+	background-image: linear-gradient(180deg
+		, fade(@color-overshoot,  0%)  85%
+		, fade(@color-overshoot, 60%) 100%
+	);
+}
+overshoot.right {
+	background-image: linear-gradient(90deg
+		, fade(@color-overshoot,  0%)  85%
+		, fade(@color-overshoot, 60%) 100%
+	);
+}
+overshoot.left {
+	background-image: linear-gradient(-90deg
+		, fade(@color-overshoot,  0%)  85%
+		, fade(@color-overshoot, 60%) 100%
+	);
+}
+
+/* Pages */
+.fabric-page > .fabric-scrolling-area > scrolledwindow > viewport {
+	padding: (2*@gutter);
+}
