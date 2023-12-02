@@ -16,6 +16,9 @@ namespace Fabric.Tenfoot {
 
 			contextual_action_add("gamepad.primary", "Edit").activate.connect(() => {
 				OnScreenKeyboard.instance.show(true);
+				GLib.Idle.add_once(() => {
+					select_region(this.text.length, this.text.length);
+				});
 			});
 
 			var touch_handler = new Gtk.GestureClick();
