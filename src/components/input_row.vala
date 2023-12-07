@@ -103,6 +103,9 @@ namespace Fabric.Tenfoot {
 		}
 
 		protected void relayout_for(int width) {
+			if (!can_expand_widget(_widget)) {
+					return;
+			}
 			if (Fabric.UI.Application.scale_physical_to_logical(width) > narrow_boundary) {
 				if (responsive_mode != Gtk.Orientation.HORIZONTAL) {
 					responsive_mode = Gtk.Orientation.HORIZONTAL;
